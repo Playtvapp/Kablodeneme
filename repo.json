@@ -1,0 +1,16 @@
+[
+  {
+    "internal_name": "AnimeciXProvider",
+    "display_name": "AnimeciX",
+    "version": 1,
+    "base_url": "https://animecix.tv",
+    "icon_url": "https://anm.cx/favicon.ico"
+  },
+  {
+    "internal_name": "DiziBoxProvider",
+    "display_name": "DiziBox",
+    "version": 1,
+    "base_url": "https://dizibox.pw",
+    "icon_url": "https://dizibox.pw/favicon.ico"
+  }
+]
