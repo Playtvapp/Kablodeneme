@@ -1,16 +1,16 @@
 {
-  "providers": [
-    {
-      "internal_name": "AnimeciXProvider",
-      "display_name": "AnimeciX",
-      "base_url": "https://animecix.tv",
-      "icon_url": "https://anm.cx/favicon.ico"
-    }
-    {
-      "internal_name": "CizgiMaxProvider",
-      "display_name": "CizgiMax",
-      "base_url": "https://cizgimax.online",
-      "icon_url": "https://anm.cx/favicon.ico"
-    }
-  ]
+"providers": [
+{
+"internal_name": "AnimeciXProvider",
+"display_name": "AnimeciX",
+"base_url": "https://animecix.net",
+"icon_url": "https://www.google.com/search?q=https://raw.githubusercontent.com/Playtvapp/Kablodeneme/main/icon/animecix.png"
+},
+{
+"internal_name": "CizgiMaxProvider",
+"display_name": "CizgiMax",
+"base_url": "[şüpheli bağlantı kaldırıldı]",
+"icon_url": "https://www.google.com/search?q=https://raw.githubusercontent.com/Playtvapp/Kablodeneme/main/icon/diziyou.png"
+}
+]
 }
