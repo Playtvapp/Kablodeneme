@@ -3,14 +3,14 @@
     {
       "internal_name": "AnimeciXProvider",
       "display_name": "AnimeciX",
-      "base_url": "https://animecix.net",
-      "icon_url": "..."
-    },
+      "base_url": "https://animecix.tv",
+      "icon_url": "https://anm.cx/favicon.ico"
+    }
     {
       "internal_name": "CizgiMaxProvider",
       "display_name": "CizgiMax",
       "base_url": "https://cizgimax.online",
-      "icon_url": "..."
-    },
+      "icon_url": "https://anm.cx/favicon.ico"
+    }
   ]
 }
