@@ -6,5 +6,11 @@
       "base_url": "https://animecix.tv",
       "icon_url": "https://anm.cx/favicon.ico"
     }
+    {
+      "internal_name": "DiziYouProvider",
+      "display_name": "DiziYou",
+      "base_url": "https://www.diziyou.to",
+      "icon_url": "https://.../diziyou-icon.png"
+    }
   ]
 }
