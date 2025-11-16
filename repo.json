@@ -3,8 +3,16 @@
     {
       "internal_name": "AnimeciXProvider",
       "display_name": "AnimeciX",
-      "base_url": "https://animecix.tv",
-      "icon_url": "https://anm.cx/favicon.ico"
+      "base_url": "https://animecix.net",
+      "icon_url": "https://.../animecix-icon.png"
+    },
+    {
+      "internal_name": "DiziYouProvider",
+      "display_name": "DiziYou",
+      "base_url": "https://www.diziyou.to",
+      "icon_url": "https://.../diziyou-icon.png"
     }
   ]
 }
+
+Bu `repo.json` değişikliğini GitHub'a yüklediğinizde, uygulamanızı yeniden başlatın ve "DİZİLER" sekmesine tıklayın. `DiziYou` artık yan menüde (sol menüde) `AnimeciX` ile birlikte görünmelidir.
