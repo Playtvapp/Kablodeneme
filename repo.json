@@ -14,5 +14,3 @@
     }
   ]
 }
-
-Bu `repo.json` değişikliğini GitHub'a yüklediğinizde, uygulamanızı yeniden başlatın ve "DİZİLER" sekmesine tıklayın. `DiziYou` artık yan menüde (sol menüde) `AnimeciX` ile birlikte görünmelidir.
