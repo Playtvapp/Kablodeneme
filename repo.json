@@ -6,11 +6,5 @@
       "base_url": "https://animecix.net",
       "icon_url": "https://raw.githubusercontent.com/Playtvapp/Kablodeneme/main/icon/animecix.png"
     },
-    {
-      "internal_name": "DiziYouProvider",
-      "display_name": "DiziYou",
-      "base_url": "https://www.diziyou.to",
-      "icon_url": "https://raw.githubusercontent.com/Playtvapp/Kablodeneme/main/icon/diziyou.png"
-    }
   ]
 }
