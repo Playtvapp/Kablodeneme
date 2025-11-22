@@ -1,9 +1,9 @@
 {
   "providers": [
     {
-      "internal_name": "CizgiMaxProvider",
-      "display_name": "CizgiMax",
-      "base_url": "https://cizgimax.online",
+      "internal_name": "AnimeciXProvider",
+      "display_name": "Animecix",
+      "base_url": "https://animecix.net",
       "icon_url": "https://anm.cx/favicon.ico"
     }
   ]
