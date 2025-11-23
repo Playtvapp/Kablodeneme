@@ -2,7 +2,7 @@
   "providers": [
     {
       "internal_name": "AnimeciXProvider",
-      "display_name": "AnimeciX",
+      "display_name": "Anime 1",
       "base_url": "https://animecix.tv",
       "icon_url": "https://anm.cx/favicon.ico"
     }
