@@ -1,0 +1,35 @@
+name: M3U Linklerini Guncelle
+
+on:
+  schedule:
+    - cron: '0 0 * * *' # Her gece yarısı (UTC) otomatik çalışır
+  workflow_dispatch: # GitHub üzerinden manuel tetikleme butonu ekler
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Repoyu Klonla
+      uses: actions/checkout@v3
+
+    - name: Python Kurulumu
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Kütüphaneleri Yükle
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests
+
+    - name: Python Betiğini Çalıştır
+      run: python process_m3u.py
+
+    - name: Yeni M3U Dosyasını Kaydet (Commit & Push)
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add guncel_liste.m3u
+        git commit -m "M3U linkleri güncellendi ve formatlandı" || echo "Değişiklik yok, commit atlanıyor."
+        git push
