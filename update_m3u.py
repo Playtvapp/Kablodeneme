@@ -1,13 +1,13 @@
 import sys
 import requests
-import json
-import re
 
 VAVOO_DOMAIN = "vavoo.to"
+# Vavoo'nun kabul ettiği ve kontrol ettiği User-Agent bilgisi
+USER_AGENT = "okhttp/4.11.0"
 
 def getAuthSignature():
     headers = {
-        "user-agent": "okhttp/4.11.0",
+        "user-agent": USER_AGENT,
         "accept": "application/json",
         "content-type": "application/json; charset=utf-8",
         "content-length": "1106",
@@ -50,7 +50,7 @@ def main():
     print(f"[BİLGİ] Imza Alindi: {signature[:15]}...")
 
     headers = {
-        "user-agent": "okhttp/4.11.0",
+        "user-agent": USER_AGENT,
         "accept": "application/json",
         "content-type": "application/json; charset=utf-8",
         "accept-encoding": "gzip",
@@ -80,7 +80,7 @@ def main():
                 r = resp.json()
                 items = r.get("items", [])
                 for item in items:
-                    item['group'] = g # Grubu kaydet
+                    item['group'] = g 
                 all_channels.extend(items)
                 cursor = r.get("nextCursor")
                 if not cursor:
@@ -88,7 +88,6 @@ def main():
             except Exception:
                 break
 
-    # M3U Dosyasını Oluştur
     print(f"[BİLGİ] Toplam {len(all_channels)} kanal bulundu. M3U olusturuluyor...")
     
     with open("guncel_liste.m3u", "w", encoding="utf-8") as f:
@@ -96,16 +95,18 @@ def main():
         for ch in all_channels:
             name = ch.get("name", "Bilinmeyen").strip()
             
-            # Kanal ID'sini al ve imzayı linke yerleştir
             if isinstance(ch.get("ids"), dict) and ch["ids"].get("id"):
                 ch_id = ch["ids"]["id"]
-                # EN KRİTİK NOKTA: Token linkin sonuna ekleniyor
-                play_url = f"https://vavoo.to/vavoo-iptv/play/{ch_id}?n=1&b=5&vavoo_auth={signature}"
+                
+                # EN KRİTİK NOKTA 1: Linkin sonuna oynatıcılar için '|User-Agent=...' ekliyoruz
+                play_url = f"https://vavoo.to/vavoo-iptv/play/{ch_id}?n=1&b=5&vavoo_auth={signature}|User-Agent={USER_AGENT}"
                 
                 group = ch.get("group", "General")
                 logo = ch.get("logo", "")
                 
                 f.write(f'#EXTINF:-1 tvg-logo="{logo}" group-title="{group}",{name}\n')
+                # EN KRİTİK NOKTA 2: VLC tabanlı oynatıcılar için ekstra tag
+                f.write(f'#EXTVLCOPT:http-user-agent={USER_AGENT}\n')
                 f.write(f"{play_url}\n")
 
     print("[BAŞARILI] guncel_liste.m3u dosyasi uretildi!")
