@@ -2,8 +2,12 @@ name: M3U Linklerini Guncelle
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Her gece yarısı (UTC) otomatik çalışır
-  workflow_dispatch: # GitHub üzerinden manuel tetikleme butonu ekler
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+# İŞTE EKLENEN KISIM BURASI: Bota yazma izni veriyoruz
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -31,5 +35,11 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git add guncel_liste.m3u
-        git commit -m "M3U linkleri güncellendi ve formatlandı" || echo "Değişiklik yok, commit atlanıyor."
-        git push
+        
+        # Sadece dosyada bir değişiklik olduysa push işlemi yap (hata almamak için)
+        if ! git diff-index --quiet HEAD; then
+          git commit -m "M3U linkleri güncellendi ve formatlandı"
+          git push
+        else
+          echo "Değişiklik yok, commit atlanıyor."
+        fi
